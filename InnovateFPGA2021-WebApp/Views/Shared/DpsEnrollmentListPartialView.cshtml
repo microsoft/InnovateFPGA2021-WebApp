@@ -1,0 +1,19 @@
+﻿@model InnovateFPGA2021_WebApp.Models.DpsEnrollmentListViewModel
+
+<option value=""></option>
+@if (ViewBag.DpsEnrollmentList != null)
+{
+    var enrollmentList = ViewBag.DpsEnrollmentList;
+
+    foreach (var item in enrollmentList.Enrollments)
+    {
+        if (enrollmentList.SelectedEnrollment != null && enrollmentList.SelectedEnrollment == item.RegistrationId)
+        {
+            <option value="@item.RegistrationId" data-isGroup="@item.isGroup" selected="selected">@item.RegistrationId</option>
+        }
+        else
+        {
+            <option value="@item.RegistrationId" data-isGroup="@item.isGroup">@item.RegistrationId</option>
+        }
+    }
+}

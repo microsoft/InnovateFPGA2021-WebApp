@@ -1,0 +1,471 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    font-size: 1.5rem;
+    border-radius: 5%;
+    color: rgb(40, 40, 40);
+    overflow: auto;
+}
+
+.header {
+    background-color: black;
+    color: white;
+    display: flex;
+}
+
+.body-content {
+    display: flex;
+    padding: 0;
+}
+
+.main-content {
+    background-color: #E7E6E6;
+    height: 110vh;
+}
+
+.apple-name {
+    margin: 0 20px;
+}
+
+.header-items {
+    align-items: center;
+    display: flex;
+}
+
+.header-item {
+    list-style: none;
+    margin: 10px;
+}
+
+.navbar-custom {
+    color: #0075c2;
+    background-color: #ffffff;
+    border-radius: 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid #D0D0D0;
+    padding-bottom:3px;
+}
+
+    .navbar-custom .navbar-text, .navbar-custom .navbar-brand {
+        color: #0075c2;
+    }
+
+.dropdown-toggle {
+    color: #0075c2;
+}
+
+.main {
+    margin-top: 8px;
+    margin-left: 8px; /* Same width as the sidebar + left position in px */
+    margin-right: 8px;
+    /*font-size: 28px;*/ /* Increased text to enable scrolling */
+    padding: 0px;
+}
+
+/*============================================================
+Header
+============================================================*/
+
+.header {
+    z-index: 2;
+    background: black;
+    /*position: fixed;*/
+    top: 0;
+    left: 0;
+    height: auto;
+    padding: 8px;
+    border-bottom: 1px solid #888;
+    width: 100%;
+    font-size: 1.3em;
+    color: rgb(240,240,240);
+}
+
+.header {
+    text-align: center;
+    display: flex;
+    height: auto;
+}
+
+div#main_contents {
+    margin: 0px 0px 0px 0px;
+}
+
+
+fieldset {
+    border-width: 1px;
+    color: rgb(40, 40, 40);
+    border-color: silver;
+    border-style: groove;
+    padding: 10px;
+    margin: 0px;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom:5px;
+}
+
+legend, legend.inner {
+    color: rgb(40, 40, 40);
+    font-size: 1.2em;
+    width: 100%;
+    border-bottom: none;
+    padding: 0 5px 0 5px;
+    margin-bottom: 0px;
+}
+
+legend {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    display: contents;
+}
+
+button {
+    margin: 3px 0px 3px 0px;
+    border: 0;
+    /*background-color: transparent;*/
+    color: #505050;
+}
+
+    button:hover {
+        text-decoration: none;
+        background-color: #dcdcdc;
+    }
+
+button:focus {
+    outline: 0;
+}
+
+    button:disabled:hover,
+    button:disabled:focus,
+    button:disabled:hover,
+    button:disabled {
+        color: #f1f1f1;
+        pointer-events: none;
+    }
+
+.modalContent {
+    min-width: 44em;
+}
+
+table {
+    border-spacing: 2px;
+}
+
+.tableModal {
+    /*table-layout: auto;*/
+}
+/*table, th, td {
+    border: 1px solid black;
+}
+*/
+
+td:before {
+    content: '';
+    display: block;
+    width: 1em;
+    min-height:0.1em;
+}
+
+i {
+    padding-right: 0.3em;
+}
+
+.EventSection {
+    display: table;
+    width: auto;
+    text-align: left;
+    margin: 0;
+    padding: 0px;
+}
+
+.eventTableButton {
+    border: none;
+    background-color: #3193dc;
+    border: 1px solid transparent;
+    padding: 1px 3px 1px 6px;
+    color:white;
+    margin:0;
+    line-height:1.3;
+    font-size:0.9em;
+    vertical-align:baseline;
+}
+
+    .eventTableButton:hover {
+        text-decoration: none;
+        background-color: #185f92;
+    }
+
+    .eventTableButton:focus {
+        outline: 0;
+    }
+
+    .eventTableButton:active .modalButton:focus .modalButton:active:focus .modalButton:visited {
+        outline: 0;
+        background-color: #86c6f5;
+    }
+
+/*============================================================
+Tooltip
+============================================================*/
+.modalToolTip {
+    position: relative;
+}
+
+    /* Tooltip text */
+    .modalToolTip .tooltiptext {
+        font-size: 0.8em;
+        visibility: hidden;
+        max-width: 30vw;
+        min-width: 10vw;
+        width: max-content;
+        background-color: #5191c9;
+        color: #fff;
+        text-align: left;
+        padding: 6px;
+        border-radius: 6px;
+        /* Position the modalToolTip text */
+        position: absolute;
+        z-index: 3;
+        top: -5px;
+        left: 110%;
+        margin-left: 1px;
+        /* Fade in modalToolTip */
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+        /* Tooltip arrow */
+        .modalToolTip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent #5191c9 transparent transparent;
+        }
+
+    .modalToolTip a:link a:visited {
+        color: #3193dc
+    }
+    /* Show the modalToolTip text when you mouse over the modalToolTip container */
+    .modalToolTip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+
+.modalTitle {
+    display: inline;
+    color: #3193dc;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.modalFooter {
+    padding-right: 26px;
+}
+
+.modalLabel {
+    font-weight: 400;
+    padding-right: 0.5em;
+    margin: 1px 0 1px 0;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.modalTr {
+    height: 2.2em;
+    vertical-align: middle;
+    padding: 1px 0 1px 0
+}
+
+.modalButton {
+    color:white;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 1px 0 1px 0;
+    min-width: 10em;
+    float: right;
+    background-color: #3193dc;
+    border:none;
+    height: 2em;
+}
+    .modalButton:focus {
+        outline: 0;
+    }
+
+    .modalButton:disabled:hover,
+    .modalButton:disabled:focus,
+    .modalButton:disabled:hover,
+    .modalButton:disabled {
+        color: #f1f1f1;
+        pointer-events: none;
+        background-color: lightgray;
+    }
+
+    .modalButton:hover {
+        text-decoration: none;
+        background-color: #185f92;
+    }
+
+    .modalButton:active .modalButton:focus .modalButton:active:focus .modalButton:visited {
+        outline: 0;
+        background-color: #86c6f5;
+    }
+
+.eventFasNoMargin {
+    margin:0;
+}
+.modalTdIcon {
+    width: 1.5em;
+    margin-left: 0.5em;
+}
+
+.modalTdLabel {
+    min-width: 9em;
+}
+
+.modalTdContents {
+    max-width: 20em;
+    width:100%;
+}
+
+.modalTdButton {
+    width: 20%;
+}
+
+.modalTdAddLabel {
+    padding-left: 0.6em;
+    min-width: 11em;
+    white-space: nowrap
+}
+
+.glyphicon {
+    padding-right: 0.5em;
+    vertical-align: text-top;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 2.6em;
+    height: 1.3em;
+    float:left;
+    margin-right:0.5em;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 0.8em;
+        width: 0.8em;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #3193dc;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #3193dc;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(1.0em);
+    -ms-transform: translateX(1.0em);
+    transform: translateX(1.0em);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 0.8em;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Radio Button*/
+
+.radio-blue {
+    display: inline-block;
+    position: relative;
+    padding: 0 6px;
+    margin: 0;
+}
+
+    .radio-blue input[type='radio'] {
+        display: none;
+    }
+
+    .radio-blue label {
+        color: #666;
+        font-weight: normal;
+    }
+
+        .radio-blue label:before {
+            content: " ";
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            margin: 0 5px 0 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 11px;
+            border: 2px solid #3193dc;
+            background-color: transparent;
+        }
+
+    .radio-blue input[type=radio]:checked + label:after {
+        border-radius: 11px;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        content: " ";
+        display: block;
+        background: #3193dc;
+    }
+
+.auto_height {
+    width: 90%;
+    height:5px;
+}
+
+.myTextArea {
+    width:100%;
+    min-height:50vh;
+    font-family:Consolas;
+    font-size:small;
+    max-height:70vh;
+}

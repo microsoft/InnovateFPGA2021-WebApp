@@ -1,0 +1,19 @@
+﻿@model InnovateFPGA2021_WebApp.Models.IoTHubModuleListViewModel
+
+<option value=""></option>
+@if (ViewBag.IoTHubModuleList != null)
+{
+    var moduleList = ViewBag.IoTHubModuleList;
+
+    foreach (var item in moduleList.Modules)
+    {
+        if (moduleList.SelectedIoTHubModule != null && moduleList.SelectedIoTHubModule == item.ModuleId)
+        {
+            <option value="@item.ModuleId" data-ModelId="@item.ModelId" data-Status="@item.Status" selected="selected">@item.ModuleId</option>
+        }
+        else
+        {
+            <option value="@item.ModuleId" data-ModelId="@item.ModelId" data-Status="@item.Status">@item.ModuleId</option>
+        }
+    }
+}

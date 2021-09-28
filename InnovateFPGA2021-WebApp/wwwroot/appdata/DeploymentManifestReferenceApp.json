@@ -1,0 +1,59 @@
+{
+  "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.1",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {
+            }
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
+              "createOptions": "{}"
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "azureiotedge/azureiotedge-hub:20210914.16-linux-arm32v7",
+              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+            }
+          }
+        },
+        "modules": {
+          "RfsModule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "daisukeiot/rfsmodule:1.0.1-arm32v7",
+              "createOptions": "{\"HostConfig\":{\"Privileged\":true,\"Binds\":[\"/lib/firmware:/lib/firmware\",\"/sys/kernel/config:/sys/kernel/config\"]},\"Mounts\":[{\"Type\":\"bind\",\"Source\":\"/lib/firmware\",\"Destination\":\"/lib/firmware\",\"Mode\":\"\",\"RW\":true,\"Propagation\":\"rprivate\"},{\"Type\":\"bind\",\"Source\":\"/sys/kernel/config\",\"Destination\":\"/sys/kernel/config\",\"Mode\":\"\",\"RW\":true,\"Propagation\":\"rprivate\"}]}"
+            }
+          }
+        }
+      }
+    },
+    "$edgeHub": {
+      "properties.desired": {
+        "schemaVersion": "1.1",
+        "routes": {
+          "RfsModuleToIoTHub": "FROM /messages/modules/RfsModule/* INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 7200
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+﻿@model InnovateFPGA2021_WebApp.Models.IoTHubDeviceListViewModel
+
+<option value=""></option>
+@if (ViewBag.IoTHubDeviceList != null)
+{
+    var deviceList = ViewBag.IoTHubDeviceList;
+
+    foreach (var item in deviceList.Devices)
+    {
+        if (deviceList.SelectedIoTHubDevice != null && deviceList.SelectedIoTHubDevice == item.DeviceId)
+        {
+            <option value="@item.DeviceId" data-isEdge="@item.IsEdge" data-ModelId="@item.ModelId" data-Status="@item.Status" selected="selected">@item.DeviceId</option>
+        }
+        else
+        {
+            <option value="@item.DeviceId" data-isEdge="@item.IsEdge" data-ModelId="@item.ModelId" data-Status="@item.Status">@item.DeviceId</option>
+        }
+    }
+}

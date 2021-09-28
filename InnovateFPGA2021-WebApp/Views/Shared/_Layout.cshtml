@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/myStyle.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/font-awesome/css/all.min.css" />
+
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</head>
+<body onload="initialize()">
+    <nav class="navbar navbar-custom">
+        <div class="container" style="width:100%;padding-left:0;">
+            <div class="navbar-header" style="float:none">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:1.1em;">
+                            <span class="glyphicon glyphicon-cog"></span>Device Management&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        <ul class="dropdown-menu pull-left">
+                            <li>
+                                <button id="btnModalDpsShow" type="button" style="border:0;text-align:left" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#modal-dps">
+                                    <img src="./images/DPS.png" style="width:1.1em; margin-right:0.5em" />Device Provisioning (DPS)
+                                </button>
+                            </li>
+                            <li>
+                                <button id="btnModalIoTHubShow" type="button" style="border: 0; text-align: left" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#modal-iothub">
+                                    <img src="./images/IoTHub.png" style="width:1.1em; margin-right:0.5em" />Device Information (IoT Hub)
+                                </button>
+                            </li>
+                            @*<li class="divider"></li>*@
+                        </ul>
+                    <li>
+                </ul>
+                <div class="navbar-brand" style="float:right;padding-top:0; padding-bottom:0;display:flex">
+                    <a href="https://innovatefpga.com" target="_blank"><img src="/images/Navbar-InnovateFPGA-Logo.png" style="max-height:50px;margin-right:10px;" /></a>
+                    <a href="https://software.intel.com/content/www/us/en/develop/topics/iot/hardware/fpga-de10-nano.html" target="_blank">
+                        <img src="/images/Navbar-Intel-Logo.png" style="max-height:50px;margin-right:10px;" /></a>
+                    <a href="https://azure.com" target="_blank"><img src="/images/Navbar-Azure-Logo.png" style="max-height:50px;" /></a>
+                </div>
+            </div>
+            @*<button id="btnModalDeviceShow" type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#modal-iothub">
+            Device Information
+            <span class="glyphicon glyphicon-cloud"></span>
+        </button>
+        <button id="btnModalDpsShow" type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#modal-dps">
+            Device Provisioning
+            <span class="glyphicon glyphicon-cloud"></span>
+        </button>*@
+        </div>
+    </nav>
+    @RenderBody()
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
