@@ -16,7 +16,7 @@
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.2.4",
               "createOptions": "{}"
             }
           },
@@ -25,7 +25,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "azureiotedge/azureiotedge-hub:20210914.16-linux-arm32v7",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.2.4",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
             }
           }
