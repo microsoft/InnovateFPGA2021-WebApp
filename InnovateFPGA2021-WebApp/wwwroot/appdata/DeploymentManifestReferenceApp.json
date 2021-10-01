@@ -16,7 +16,7 @@
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.2.4",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
               "createOptions": "{}"
             }
           },
@@ -25,7 +25,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.2.4",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.2",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
             }
           }
@@ -37,7 +37,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "daisukeiot/rfsmodule:1.0.0-arm32v7",
+              "image": "daisukeiot/rfsmodule:1.0.1-arm32v7",
               "createOptions": "{\"HostConfig\":{\"Privileged\":true,\"Binds\":[\"/lib/firmware:/lib/firmware\",\"/sys/kernel/config:/sys/kernel/config\"]},\"Mounts\":[{\"Type\":\"bind\",\"Source\":\"/lib/firmware\",\"Destination\":\"/lib/firmware\",\"Mode\":\"\",\"RW\":true,\"Propagation\":\"rprivate\"},{\"Type\":\"bind\",\"Source\":\"/sys/kernel/config\",\"Destination\":\"/sys/kernel/config\",\"Mode\":\"\",\"RW\":true,\"Propagation\":\"rprivate\"}]}"
             }
           }
