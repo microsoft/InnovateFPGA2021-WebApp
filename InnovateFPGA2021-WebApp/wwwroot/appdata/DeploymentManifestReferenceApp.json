@@ -37,7 +37,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "daisukeiot/rfsmodule:1.0.0-arm32v7",
+              "image": "terasic/rfsmodule:1.0.0-arm32v7",
               "createOptions": "{\"HostConfig\":{\"Privileged\":true,\"Binds\":[\"/lib/firmware:/lib/firmware\",\"/sys/kernel/config:/sys/kernel/config\"]},\"Mounts\":[{\"Type\":\"bind\",\"Source\":\"/lib/firmware\",\"Destination\":\"/lib/firmware\",\"Mode\":\"\",\"RW\":true,\"Propagation\":\"rprivate\"},{\"Type\":\"bind\",\"Source\":\"/sys/kernel/config\",\"Destination\":\"/sys/kernel/config\",\"Mode\":\"\",\"RW\":true,\"Propagation\":\"rprivate\"}]}"
             }
           }
